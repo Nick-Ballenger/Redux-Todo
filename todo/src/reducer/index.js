@@ -25,17 +25,15 @@ export default (state = initialState, action) => {
 			return { todos: [ ...state.todos, action.payload ] };
 		case TOGGLE_COMPLETE:
 			return {
-				todos: [
-					...state.todos.map((todo) => {
+				todos: state.todos.map((todo) => {
 						if (todo.id !== action.payload.id) {
 							return todo;
 						} else {
 							return action.payload;
 						}
 					})
-				]
+				
 			};
-		default:
-			return state;
+		default:return state;
 	}
 };
